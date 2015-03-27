@@ -1,0 +1,32 @@
+//ClearFix
+.clearfix{
+  zoom:1;
+  &:before, &:after{ content:""; display:table; }
+  &:after{ clear: both; }
+}
+
+.transition(@time:0.7s){
+	-webkit-transition: @time;
+	-moz-transition: @time;
+	-o-transition: @time;
+	-ms-transition: @time; 
+	transition: @time;
+}
+
+// Botões
+//Parâmetros: width, height, background, hover background, color text, hover color text.
+.btn1(@width-btn: 160px, @height-btn: 52px, @bg-btn: @cor2, @hover-btn: @cor2-hover, @cor-txt: @cor6, @hover-color: @cor6){
+	display: block;
+	width: @width-btn;
+	height: @height-btn;
+	line-height: @height-btn;
+	color:@cor-txt;
+	text-align: center;
+	background-color: @bg-btn;
+	.transition(0.4s);
+
+	&:hover{
+		color: @hover-color;
+		background: @hover-btn;
+	}
+}

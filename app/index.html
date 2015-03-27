@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Testes Teste</title>
+
+	<!-- Chamadas CSS -->
+	<link rel="stylesheet" type="text/css" href="styles/Main.css">
+	
+	<base href="/">
+</head>
+<body>
+	
+	<div id="wrap">
+		
+		<!-- Header -->
+		<header id="header" ng-include="'views/header.html'"></header>
+		
+
+		<!-- Menu -->
+		<nav ng-include="'views/nav.html'"></nav>
+		
+
+		<!-- Carrega conteudo dos templates -->
+		<div ng-view></div>
+		
+
+		<!-- Footer -->
+		<footer id="footer" ng-include="'views/footer.html'"></footer>
+
+	</div>
+
+	<!-- Chamadas JS -->
+	<script src="scripts/app.js"></script>
+
+</body>
+</html>
