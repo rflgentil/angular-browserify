@@ -13,10 +13,10 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     browserify = require('gulp-browserify'),
     webserver = require('gulp-webserver'),
-    clean = require('gulp-clean'),
     rev = require('gulp-rev'),
     revCollector = require('gulp-rev-collector'),
-    imagemin = require('gulp-imagemin');
+    imagemin = require('gulp-imagemin'),
+    del = require('del');
 
 
 var pathsDev = {
@@ -139,16 +139,12 @@ gulp.task('configPublic', function () {
 });
 
 //Clean
-gulp.task('cleanStyle', function () {
-  gulp.src('_public/styles/*.css')
-    .pipe(clean());
+gulp.task('clean', function(cb){
+  del([
+    '_public/styles/*.css',
+    '_public/scripts/*.js'
+  ], cb);
 });
-
-gulp.task('cleanScripts', function () {
-  gulp.src('_public/scripts/*.js')
-    .pipe(clean());
-});
-gulp.task('clean', ['cleanStyle', 'cleanScripts']);
 
 // Publica CSS e JS já com Hash e minificado.
 gulp.task('public', ['clean', 'configPublic', 'less', 'scripts', 'lint']);
